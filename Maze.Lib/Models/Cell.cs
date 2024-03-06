@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
-namespace MazeLib
+namespace Maze.Lib.Models
 {
     /// <summary>
     /// Класс для хранения клетки с метаданными

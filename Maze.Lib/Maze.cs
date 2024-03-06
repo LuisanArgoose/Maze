@@ -2,9 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using SecretRandomLib;
+using Maze.Lib.Helpers;
+using Maze.Lib.Models;
 
-namespace MazeLib
+namespace Maze.Lib
 {
     /// <summary>
     /// Генератор лабиринтов размерами X*Y
@@ -225,10 +226,10 @@ namespace MazeLib
             int maxWayLocal = 0;
 
             // Список с возможными путями
-            List<TypeObject> NewWays = new List<TypeObject>();
+            List<Way> NewWays = new List<Way>();
 
             // Создание первой точки
-            NewWays.Add(new TypeObject(x, y, maxWayLocal));
+            NewWays.Add(new Way(x, y, maxWayLocal));
 
             //Перебор всех возможных путей пока они есть
             while (NewWays.Count > 0)
@@ -239,7 +240,7 @@ namespace MazeLib
 
                 // Выбор случайого элемента из списка с возможными путями
                 int randomIndex = _rnd.Next(0, NewWays.Count);
-                TypeObject Way = NewWays[randomIndex];
+                Way Way = NewWays[randomIndex];
 
                 // Вложенная функция для выполнения операции над выбранной клетко
                 void swap(int directionSide, int xStep, int yStep)
@@ -253,7 +254,7 @@ namespace MazeLib
                         map[Way.y + yStep, Way.x + xStep] = 0;
 
                         // Добавление новой точки в список возможных путей
-                        NewWays.Add(new TypeObject(Way.x + xStep,
+                        NewWays.Add(new Way(Way.x + xStep,
                             Way.y + yStep, Way.MaxWayLocal + 1));
 
                         // Задание координат самой дальней точки 

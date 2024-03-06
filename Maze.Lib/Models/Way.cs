@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MazeLib
+namespace Maze.Lib.Models
 {
     /// <summary>
     /// Класс с параметрами нового пути
     /// </summary>
-    public class TypeObject
+    public class Way
     {
         /// <summary>
         /// Координата X
@@ -30,7 +30,7 @@ namespace MazeLib
         /// <param name="x">Координата X</param>
         /// <param name="y">Координата Y</param>
         /// <param name="maxWaylocal">Дальность текущей клетки от начальной</param>
-        public TypeObject(int x, int y, int maxWaylocal)
+        public Way(int x, int y, int maxWaylocal)
         {
             this.x = x;
             this.y = y;
